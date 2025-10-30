@@ -91,8 +91,8 @@
 
 ---
 ---
-## 4. Protocolo y Flujo de Trabajo (Guía Paso a Paso)
-*Este es nuestro acuerdo "picado en piedra" sobre cómo gestionamos el proyecto y colaboramos.*
+## 4. Protocolo y Flujo de Trabajo (Modo Programa)
+*Este es nuestro acuerdo "picado en piedra" sobre cómo gestionamos el proyecto y colaboramos. Este protocolo es un "guion" que seguimos en cada sesión.*
 
 ### A. Fuentes de Verdad (Dónde vive la información)
 * **`README.md` (Este archivo):** El estado *actual* del proyecto, stack y este protocolo. Es nuestro "Dashboard".
@@ -101,49 +101,34 @@
 * **`GitHub Projects`:** El tablero visual (Kanban) que organiza los `Issues`.
 * **`GitHub Wiki`:** La documentación *estática* del proyecto (Glosario, "Personas" de usuario, guías, etc).
 
-### B. Configuración Inicial de Tareas (Qué hacer ANTES de empezar)
-*Tú crearás las tareas (Issues) basándote en nuestro roadmap.*
-1.  **Crear `Issue`:** Para cada nueva tarea (ej: "Modelar datos de Veterinaria"), crea un nuevo `Issue` en GitHub.
-2.  **Asignar a `Projects`:** Ve a `GitHub Projects`, abre el tablero del proyecto, y arrastra el nuevo `Issue` a la columna **`Pendiente`**.
+### B. Flujo de Inicio de Sesión (Mi "Guion" de Inicio)
+*Cuando me indiques "vamos a comenzar" o "listo para trabajar", yo (Gemini) tomaré la iniciativa y te guiaré con las siguientes preguntas en orden.*
 
-### C. Flujo de Trabajo por Sesión (La Guía del Día a Día)
-*Esto es lo que hacemos cada vez que nos sentamos a trabajar.*
+1.  **(Yo):** "¡Perfecto! Iniciando 'Modo Programa'. Por favor, carga el contexto: Pega el contenido de `README.md` y las últimas 3 entradas de `contexto_log.md`."
+2.  **(Tú):** (Pegas el contenido).
+3.  **(Yo):** "Contexto cargado. Por favor, ve a `GitHub Projects`. ¿Qué `Issue #` de la columna `Pendiente` vamos a mover a `En Progreso` para trabajar hoy?"
+4.  **(Tú):** (Respondes, ej: "Vamos con el Issue #4").
+5.  **(Yo):** "Entendido. Trabajaremos en el `Issue #4`. Por favor, crea la rama de Git correspondiente desde `develop`. El comando sugerido es: `git checkout -b feature/4-nombre-del-issue`"
+6.  **(Tú):** (Confirmas la creación de la rama).
+7.  **(Yo):** "¡Excelente! Estamos listos para comenzar a trabajar en la rama `feature/4-nombre-del-issue`."
 
-1.  **Inicio (Tu Lado):**
-    * Vas a `GitHub Projects`.
-    * Miras la columna **`Pendiente`** y eliges el `Issue` en el que trabajaremos (ej: `Issue #3`).
-    * Arrastras la tarjeta del `Issue #3` a la columna **`En Progreso`**.
-2.  **Carga de Contexto (Tu Lado):**
-    * Vienes a este chat ("Discusiones Python").
-    * Me pasas el contenido completo de `README.md` y las últimas entradas de `contexto_log.md`.
-    * Me dices: "**Vamos a trabajar en el Issue #3: Modelar datos de Veterinaria**".
-3.  **Creación de Rama (Tu Lado):**
-    * Te sitúas en tu rama `develop`.
-    * Creas una nueva rama de "feature" usando el número del Issue:
-        `git checkout -b feature/3-modelado-veterinaria`
-4.  **Desarrollo (Nuestro Lado):**
-    * Trabajamos juntos en el código, siguiendo el objetivo del Issue.
-    * Tú haces `commits` locales a tu rama `feature/...` tan a menudo como quieras.
+### C. Flujo de Fin de Sesión (Mi "Guion" de Cierre)
+*Cuando me indiques "vamos a terminar", "listo por hoy" o un sentimiento similar, yo (Gemini) tomaré la iniciativa y te guiaré en el cierre.*
 
-### D. Flujo de Fin de Sesión (El Cierre)
+1.  **(Yo):** "Entendido. Iniciando 'Modo Cierre' para el `Issue #4`. ¿Algo más que deba saber antes de generar la bitácora? (ej: bloqueos nuevos, o algún 'insight' clave que tuviste)."
+2.  **(Tú):** (Me das un breve resumen).
+3.  **(Yo):** "Recibido. Aquí están los entregables de la sesión:"
+    * *(Yo genero el...)* **Texto A (Bitácora):** La nueva entrada para `contexto_log.md` (siempre con las 7 secciones).
+    * *(Yo genero el...)* **Texto B (Actualización README):** (Si aplica) El texto actualizado para el `README.md`.
+    * *(Yo genero el...)* **Texto C (Contenido Wiki):** (Si aplica) El contenido de documentación estática para la `Wiki`.
+4.  **(Yo):** "Por favor, valida estos textos. Tu último paso es el **Commit Único**:"
+    * "1. Revisa la sección 'Archivos Modificados' de la bitácora y ajústala con tu `git status`."
+    * "2. Añade tus cambios de código, el `README.md` (si cambió) y el `contexto_log.md` (`git add .`)."
+    * "3. Haz el commit con el mensaje mágico para cerrar el Issue: `git commit -m 'feat: [Tu trabajo] (resuelve #4)'`"
+    * "4. Sube tu rama: `git push origin feature/4-nombre-del-issue`"
+    * "5. (Opcional) Crea el Pull Request en GitHub para fusionar a `develop`."
+    * "6. (Si aplica) Pega el Texto C en la `Wiki`."
+5.  **(Yo):** "¡Sesión finalizada! Quedo a la espera para la próxima."
 
-5.  **Aviso de Cierre (Tu Lado):**
-    * Me indicas que hemos terminado por hoy.
-6.  **Generación de Textos (Mi Lado):**
-    * Yo te entrego los siguientes bloques de texto:
-        * **Texto A (Bitácora):** La nueva entrada para `contexto_log.md` (siempre con las 7 secciones).
-        * **Texto B (Actualización README):** (Si aplica) El texto actualizado para el `README.md` si el stack o el estado cambiaron.
-        * **Texto C (Contenido Wiki):** (Si aplica) El contenido de documentación estática para la `GitHub Wiki`.
-7.  **Commit Único y Push (Tu Lado):**
-    * **Validación Crucial:** Revisas la Bitácora (Texto A), especialmente "Archivos Modificados", y la corriges/complementas basándote en tu `git status`.
-    * Añades todos tus archivos: `git add .`
-    * Haces **un solo commit** con un mensaje que **"resuelva"** el Issue:
-        `git commit -m "feat: Crea modelos de Veterinaria (resuelve #3)"`
-    * Subes tu rama a GitHub: `git push origin feature/3-modelado-veterinaria`
-8.  **Cierre de Tarea (Tu Lado y GitHub):**
-    * Vas a GitHub y creas un **Pull Request** para fusionar `feature/3-modelado-veterinaria` en `develop`.
-    * Al fusionar, GitHub **automáticamente cerrará el `Issue #3`** y lo moverá a la columna **`Hecho`** en `GitHub Projects`.
-    * Finalmente, vas a la `Wiki` y pegas el **Texto C** (si lo hubo).
-
-### E. Revisiones Periódicas
-* Al inicio de cada semana (o cuando lo veamos necesario), dedicaremos unos minutos a revisar juntos este `README.md` para asegurar que sigue siendo 100% preciso.
+### D. Revisiones Periódicas
+* Al inicio de cada semana (o cuando lo veamos necesario), revisaremos juntos este `README.md` para asegurar que sigue siendo 100% preciso.
