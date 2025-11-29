@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-// Prototipos de operaciones
+// Prototipos
 void sumar();
 void restar();
 void multiplicar();
 void dividir();
 void calcular_factorial();
-void potencia(); // Avanzado
-void raiz_cuadrada(); // Avanzado
+void potencia(); 
+void raiz_cuadrada();
 
 int main() {
     int opcion;
@@ -31,8 +31,8 @@ int main() {
             case 3: multiplicar(); break;
             case 4: dividir(); break;
             case 5: calcular_factorial(); break;
-            case 6: potencia(); break;
-            case 7: raiz_cuadrada(); break;
+            case 6: potencia(); break; // Pendiente
+            case 7: raiz_cuadrada(); break; // Pendiente
             case 8: cout << "Adios." << endl; break;
             default: cout << "Opcion no reconocida." << endl;
         }
@@ -41,11 +41,52 @@ int main() {
     return 0;
 }
 
-// Implementaciones vacias (Placeholders)
-void sumar() { cout << "Pendiente..." << endl; }
-void restar() { cout << "Pendiente..." << endl; }
-void multiplicar() { cout << "Pendiente..." << endl; }
-void dividir() { cout << "Pendiente..." << endl; }
-void calcular_factorial() { cout << "Pendiente logica de bucles..." << endl; }
-void potencia() { cout << "Pendiente..." << endl; }
-void raiz_cuadrada() { cout << "Pendiente..." << endl; }
+void sumar() {
+    double a, b;
+    cout << "Ingrese primer numero: "; cin >> a;
+    cout << "Ingrese segundo numero: "; cin >> b;
+    cout << "Resultado: " << (a + b) << endl;
+}
+
+void restar() {
+    double a, b;
+    cout << "Ingrese primer numero: "; cin >> a;
+    cout << "Ingrese segundo numero: "; cin >> b;
+    cout << "Resultado: " << (a - b) << endl;
+}
+
+void multiplicar() {
+    double a, b;
+    cout << "Ingrese primer numero: "; cin >> a;
+    cout << "Ingrese segundo numero: "; cin >> b;
+    cout << "Resultado: " << (a * b) << endl;
+}
+
+void dividir() {
+    double a, b;
+    cout << "Ingrese dividendo: "; cin >> a;
+    cout << "Ingrese divisor: "; cin >> b;
+    if (b != 0)
+        cout << "Resultado: " << (a / b) << endl;
+    else
+        cout << "Error: No se puede dividir entre cero." << endl;
+}
+
+void calcular_factorial() {
+    int n;
+    long long factorial = 1; // long long para numeros grandes
+    cout << "Ingrese un numero entero positivo: "; 
+    cin >> n;
+
+    if (n < 0) {
+        cout << "Error: No existe factorial de negativos." << endl;
+    } else {
+        for(int i = 1; i <= n; ++i) {
+            factorial *= i;
+        }
+        cout << "El factorial de " << n << " es: " << factorial << endl;
+    }
+}
+
+void potencia() { cout << "Pendiente de implementar libreria cmath..." << endl; }
+void raiz_cuadrada() { cout << "Pendiente de implementar libreria cmath..." << endl; }

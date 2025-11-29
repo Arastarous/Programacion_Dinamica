@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits> // Para numeric_limits
 
 using namespace std;
 
-// Estructura para representar un producto
 struct Producto {
     int id;
     string nombre;
@@ -12,7 +12,6 @@ struct Producto {
     float precio;
 };
 
-// Base de datos local (vector)
 vector<Producto> inventario;
 
 // Prototipos
@@ -32,7 +31,7 @@ int main() {
         switch(opcion) {
             case 1: agregar_producto(); break;
             case 2: mostrar_inventario(); break;
-            case 3: buscar_producto(); break;
+            case 3: buscar_producto(); break; // Pendiente
             case 4: cout << "Cerrando sistema..." << endl; break;
             default: cout << "Opcion invalida." << endl;
         }
@@ -44,18 +43,44 @@ int main() {
 void mostrar_menu() {
     cout << "\n1. Agregar Producto" << endl;
     cout << "2. Mostrar Todos los Productos" << endl;
-    cout << "3. Buscar Producto" << endl;
+    cout << "3. Buscar Producto (Pendiente)" << endl;
     cout << "4. Salir" << endl;
     cout << "Opcion: ";
 }
 
-// Stubs (Funciones vacias para rellenar despues)
 void agregar_producto() {
-    cout << "[TODO] Implementar captura de datos del producto" << endl;
+    Producto nuevo;
+    
+    cout << "\n--- Nuevo Producto ---" << endl;
+    cout << "ID: "; cin >> nuevo.id;
+    
+    // Limpiar buffer antes de pedir strings con espacios
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+    
+    cout << "Nombre: "; 
+    getline(cin, nuevo.nombre);
+    
+    cout << "Cantidad: "; cin >> nuevo.cantidad;
+    cout << "Precio: $"; cin >> nuevo.precio;
+    
+    inventario.push_back(nuevo);
+    cout << "Producto agregado correctamente." << endl;
 }
+
 void mostrar_inventario() {
-    cout << "[TODO] Implementar recorrido del vector" << endl;
+    if (inventario.empty()) {
+        cout << "\nEl inventario esta vacio." << endl;
+    } else {
+        cout << "\n--- Lista de Productos ---" << endl;
+        for (const auto& p : inventario) {
+            cout << "ID: " << p.id 
+                 << " | Nombre: " << p.nombre 
+                 << " | Cant: " << p.cantidad 
+                 << " | Precio: $" << p.precio << endl;
+        }
+    }
 }
+
 void buscar_producto() {
-    cout << "[TODO] Implementar busqueda lineal" << endl;
+    cout << "[TODO] Implementar busqueda lineal manana" << endl;
 }
