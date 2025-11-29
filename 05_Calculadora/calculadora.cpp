@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath> // Necesaria para pow() y sqrt()
 using namespace std;
 
 // Prototipos
@@ -13,7 +14,8 @@ void raiz_cuadrada();
 int main() {
     int opcion;
     do {
-        cout << "\n--- CALCULADORA CIENTIFICA BASICA ---" << endl;
+        // Menu simple
+        cout << "\n--- CALCULADORA CIENTIFICA v2.0 ---" << endl;
         cout << "1. Suma" << endl;
         cout << "2. Resta" << endl;
         cout << "3. Multiplicacion" << endl;
@@ -31,9 +33,9 @@ int main() {
             case 3: multiplicar(); break;
             case 4: dividir(); break;
             case 5: calcular_factorial(); break;
-            case 6: potencia(); break; // Pendiente
-            case 7: raiz_cuadrada(); break; // Pendiente
-            case 8: cout << "Adios." << endl; break;
+            case 6: potencia(); break;
+            case 7: raiz_cuadrada(); break;
+            case 8: cout << "Cerrando aplicacion..." << endl; break;
             default: cout << "Opcion no reconocida." << endl;
         }
     } while (opcion != 8);
@@ -69,12 +71,12 @@ void dividir() {
     if (b != 0)
         cout << "Resultado: " << (a / b) << endl;
     else
-        cout << "Error: No se puede dividir entre cero." << endl;
+        cout << "Error: Division por cero indefinida." << endl;
 }
 
 void calcular_factorial() {
     int n;
-    long long factorial = 1; // long long para numeros grandes
+    long long factorial = 1; 
     cout << "Ingrese un numero entero positivo: "; 
     cin >> n;
 
@@ -88,5 +90,20 @@ void calcular_factorial() {
     }
 }
 
-void potencia() { cout << "Pendiente de implementar libreria cmath..." << endl; }
-void raiz_cuadrada() { cout << "Pendiente de implementar libreria cmath..." << endl; }
+// Funciones Avanzadas (Implementadas hoy Sabado)
+void potencia() {
+    double base, exp;
+    cout << "Ingrese base: "; cin >> base;
+    cout << "Ingrese exponente: "; cin >> exp;
+    cout << "Resultado: " << pow(base, exp) << endl;
+}
+
+void raiz_cuadrada() {
+    double n;
+    cout << "Ingrese numero: "; cin >> n;
+    if (n >= 0) {
+        cout << "Raiz cuadrada: " << sqrt(n) << endl;
+    } else {
+        cout << "Error: No se puede calcular raiz de negativo en reales." << endl;
+    }
+}
