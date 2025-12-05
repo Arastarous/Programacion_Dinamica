@@ -90,7 +90,7 @@ void calcular_factorial() {
     }
 }
 
-// Funciones Avanzadas (Implementadas hoy Sabado)
+// Funciones Avanzadas
 void potencia() {
     double base, exp;
     cout << "Ingrese base: "; cin >> base;
